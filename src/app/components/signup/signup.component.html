@@ -1,0 +1,24 @@
+<div style="text-align: center; margin-top: 10%;">
+    <img src = '/assets/Logo.png'width = "30%" height="15%" >
+    <div class="enter" >
+        <div  style="background-color: red;"><p class="text" style="text-align: center; color: white;">Регистрация</p></div>
+        <input class="inputTXT" type="text" name="firstName" [(ngModel)]="newUser.firstName" #firstName="ngModel" required placeholder="Имя">
+        <input class="inputTXT" type="text" name="lastName" [(ngModel)]="newUser.lastName" #lastName="ngModel" required placeholder="Фамилия">
+        <input class="inputTXT" type="text" name="email" [(ngModel)]="newUser.email" required #email="ngModel" email placeholder="@email">
+        <input class="inputTXT" type="password" name="password" [(ngModel)]="newUser.password" #password="ngModel" required placeholder="Пароль">
+        
+        <!--<a href="">
+            <div id = "button" style="margin: 5% 0% 1% 25%; padding: 1%; width: 45%; "> 
+                <p class="text_center"  style="text-align: center; ">Зарегистрироваться</p>
+            </div>
+        </a>-->
+        <button 
+            [disabled]="firstName.invalid || lastName.invalid || email.invalid || password.invalid"
+            (click)="addUser()"
+            style="width: 30%; margin-left: 38%; margin-top: 2%;">
+            <div id = "button" style=" padding: 1%;  "> 
+                <p class="text_center"  style="text-align: center; ">Зарегистрироваться</p>
+            </div>
+        </button>
+    </div>
+</div>

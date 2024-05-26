@@ -1,0 +1,25 @@
+<div style="text-align: center; margin-top: 10%;">
+    <img src = '/assets/Logo.png' width = "30%" height="15%" >
+    <div class="enter" >
+        <div  style="background-color: red;"><p class="text" style="text-align: center; color: white;">Вход</p></div>
+        
+        <input class="inputTXT" type="text" name="email" [(ngModel)]="logUser.email" required #email="ngModel" placeholder="@email">
+        <input class="inputTXT" type="password" name="password" [(ngModel)]="logUser.password" #password="ngModel" required placeholder="Пароль">
+        
+       
+        <button 
+            [disabled]="email.invalid || password.invalid"
+            (click)="loginUser()"
+            style="width: 30%; margin-left: 35%; margin-top: 2%;">
+            <div id = "button" style=" padding: 1%;  "> 
+                <p class="text_center"  style="text-align: center; ">Войти</p>
+            </div>
+        </button>
+        <p style="text-align: center">Или</p>
+        <a routerLink = "/signup">
+            <div id = "button" style="margin: 1% 0% 1% 36%; padding: 1%; width: 27%;"> 
+                <p class="text_center"  style="text-align: center; ">Зарегистрироваться</p>
+            </div>
+        </a>
+    </div>
+</div>

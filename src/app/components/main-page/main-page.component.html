@@ -1,43 +1,43 @@
-<body class="text">
-    <nav >
-        <ul >
-            <li class="navig" style="margin-left: 0;"><a routerLink = "/main">
-                <img src = '/assets/Logo.png'width = "30%" height="15%">
-            </a></li>
-            <li class="navig"><a routerLink = "/main" ><span class="text"> О нас </span></a></li>
-            <li class="navig"><a routerLink = "/main"> <span class="text ">Мои опросы</span> </a></li>
-            <div style="border-top:10px solid red; "></div>
-        </ul>
-        
-    </nav>
-    <main>
-        
-        <ul >
-            <li class="center" style="width: 55%; height: 50%;">
-                <div id = "square" class="center">
-                    <p class="text_center" style="font-size: 20px;" >
-                        Опросы - простой и удобный способ собрать информацию
-                    </p>
-                    <p class="text_center" style="border-left: 5px solid white;  margin-bottom: 0; ">
-                        Упростите сбор информации на нашем сайте с помощью наших опросов!
-                    </p>
-                    <p class="text_center" style="border-left: 5px solid white; margin-top: 0; "> 
-                        Начните создавать удобные опросы уже сегодня и повысте уровень уровень взаимодействия с вашими посетителями
-                    </p>
+<nav >
+    <ul >
+        <li class="navig" style="margin-left: 0;"><a routerLink = "/main">
+            <img src = '/assets/Logo.png'width = "30%" height="15%">
+        </a></li>
+        <li class="navig"><a routerLink = "/about" ><span class="text"> О нас </span></a></li>
+        <li class="navig"><a routerLink = "/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+        <li class= "navig"><button (click)="out()" class = text>Выйти</button></li>
+        <div style="border-top:10px solid red; "></div>
+    </ul>
+    
+</nav>
+<main>
+    
+    <ul >
+        <li class="center" style="width: 55%; height: 50%;">
+            <div id = "square" class="center">
+                <p class="text_center" style="font-size: 20px;" >
+                    Опросы - простой и удобный способ собрать информацию
+                </p>
+                <p class="text_center" style="border-left: 5px solid white;  margin-bottom: 0; ">
+                    Упростите сбор информации на нашем сайте с помощью наших опросов!
+                </p>
+                <p class="text_center" style="border-left: 5px solid white; margin-top: 0; "> 
+                    Начните создавать удобные опросы уже сегодня и повысте уровень уровень взаимодействия с вашими посетителями
+                </p>
+            </div>
+            <a routerLink = "/newpoll">
+                <div id = "button" style="margin-top: 5%; padding: 1%;"> 
+                    <p class="text_center"  style="text-align: center; ">Создать опрос</p>
                 </div>
-                <a routerLink = "/newpoll">
-                    <div id = "button" style="margin-top: 5%; padding: 1%;"> 
-                        <p class="text_center"  style="text-align: center; ">Создать опрос</p>
-                    </div>
-                </a>
-            </li>
-            
-            <li class="center" style="width: 40%; height: 50%;">
-                <img src = '/assets/main_picture.png' width="100%" height="100%">
-            </li>
-
-            
-        </ul>
+            </a>
+        </li>
         
-    </main>
-</body>
+        <li class="center" style="width: 40%; height: 50%;">
+            <img src = '/assets/main_picture.png' width="100%" height="100%">
+        </li>
+
+        
+    </ul>
+    
+</main>
+

@@ -4,49 +4,34 @@
             <li class="navig" style="margin-left: 0;"><a routerLink = "/main">
                 <img src = '/assets/Logo.png'width = "30%" height="15%">
             </a></li>
-            <li class="navig"><a routerLink = "/main" ><span class="text"> О нас </span></a></li>
-            <li class="navig"><a routerLink = "/main"> <span class="text ">Мои формы</span> </a></li>
+            <li class="navig"><a routerLink = "/about" ><span class="text"> О нас </span></a></li>
+            <li class="navig"><a routerLink = "/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+            <li class= "navig"><button (click)="out()" class = text>Выйти</button></li>
             <div style="border-top:10px solid red; "></div>
         </ul>
         
     </nav>
     <main>
         <div style="display: inline; margin-left: 5%;">
-            <button (click)="addQuestion()"> <p class="text">Создать</p></button>
+            <button (click)="addQuestion()"> <p class="text">Создать вопрос</p></button>
             <button> <p class="text">Посмотреть ответы </p></button>
         </div>
         
         <div class="new_forms">
             <div style="background-color: red; display: flex;"><input type="text" class="inputTXT, text" style="color: white;background-color: red;" placeholder="Название опроса"></div>
-            <button (click)="addQuestion()">Добавить вопрос</button>
+            
             <div *ngFor="let question of questions; let i = index">
                 <button (click)="addAnswer(i)" style="color: red; margin-left: 2%;">+</button> 
                 <input class="inputTXT" type="text" [(ngModel)]="question.text" placeholder="Вопрос"> 
-                <button (click)="removeQuestion(i)"><img src = "/assets/basket.png" style="width: 50%; height: 50%;"></button>
+                <button (click)="removeQuestion(i)"><img src = "/assets/basket.png" style="width: 50%; height: 40%;"></button>
                 <!--<button (click)="addAnswer(i)" style="color: red; border-bottom: 1px solid red;">Добавить ответ</button>-->
                 <div *ngFor="let answer of question.answers; let j = index" style="display: flex;">
                     <div class="circle" style="margin-left: 5%; margin-top: 2%; ">  </div>
                     <input class="inputTXT" type="text" [(ngModel)]="answer.text" placeholder="Вариант ответа">
-                    <button (click)="removeAnswer(i, j)"><img src = "/assets/basket.png" style="width: 50%; height: 60%;"></button>
+                    <button (click)="removeAnswer(i, j)"><img src = "/assets/basket.png" style="width: 50%; height: 65%;"></button>
                     <!--<button (click)="removeAnswer(i, j)">Удалить вариант ответа</button> -->
                 </div>
             </div>
-            <!--<div>
-                <button (click)="addQuestion()">Добавить вопрос</button>
-                <div *ngFor="let question of questions; let i = index">
-                    <div>
-                    <label>Вопрос {{ i + 1 }}:</label>
-                    <input type="text" [(ngModel)]="question.text">
-                    <button (click)="removeQuestion(i)">Удалить вопрос</button>
-                    </div>
-                    <button (click)="addAnswer(i)">Добавить вариант ответа</button>
-                    <div *ngFor="let answer of question.answers; let j = index">
-                    <input type="text" [(ngModel)]="answer.text">
-                    <button (click)="removeAnswer(i, j)">Удалить вариант ответа</button>
-                    </div>
-                </div>
-            </div>-->
-
         </div>
         
         

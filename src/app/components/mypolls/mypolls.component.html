@@ -1,0 +1,30 @@
+<nav >
+    <ul >
+        <li class="navig" style="margin-left: 0;"><a routerLink = "/main">
+            <img src = '/assets/Logo.png'width = "30%" height="15%">
+        </a></li>
+        <li class="navig"><a routerLink = "/about" ><span class="text"> О нас </span></a></li>
+        <li class="navig"><a routerLink = "/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+        <li class= "navig"><button (click)="out()" class = text>Выйти</button></li>
+        <div style="border-top:10px solid red; "></div>
+    </ul>
+    
+</nav>
+<!--<main>
+    <div class="survey-container">
+        <div class="survey-card" *ngFor="let survey of surveys">
+            <h3>{{ survey.title }}</h3>
+            <p>Автор: {{ survey.author }}</p>
+        </div>
+    </div>
+</main>
+-->
+<main>
+    <div class="survey-container">
+        <div class="survey-card" *ngFor="let fakePost of fakePhotos">
+            <h3>{{ fakePost.title}}</h3>
+            <p>Автор: {{ fakePost.id}}</p>
+        </div>
+    </div>
+    <div>{{fakePosts.url}}</div>
+</main>

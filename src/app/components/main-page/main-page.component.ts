@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { ServerService } from '../../service/server.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-main-page',
@@ -10,5 +13,8 @@ import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler } from '@a
   styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {
-
+  constructor(private ss: ServerService){}
+  out(): void{
+    this.ss.logout();
+  }
 }

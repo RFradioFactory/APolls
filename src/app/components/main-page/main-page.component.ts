@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ServerService } from '../../service/server.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 
 @Component({
@@ -13,8 +14,8 @@ import { Router } from '@angular/router';
   styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {
-  constructor(private ss: ServerService){}
+  constructor(private auth: AuthService){}
   out(): void{
-    this.ss.logout();
+    this.auth.logout();
   }
 }

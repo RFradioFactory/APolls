@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MainPageComponent } from '../main-page/main-page.component';
+import { Router } from '@angular/router';
 
 interface Answer {
   text: string;
@@ -43,8 +44,12 @@ export class CreatePollComponent {
   removeAnswer(questionIndex: number, answerIndex: number): void {
     this.questions[questionIndex].answers.splice(answerIndex, 1);
   }
-  constructor(private main: MainPageComponent){}
+  constructor(private main: MainPageComponent, private router: Router){}
   out(): void{
     this.main.out();
+  }
+
+  create(){
+    this.router.navigate(['/mypolls'])
   }
 }

@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, HttpHandler } from '@angular/common/http';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { CreatePollComponent } from './components/create-poll/create-poll.component';
 

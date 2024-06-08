@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ServerService } from '../../service/server.service';
 import { Router } from '@angular/router';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { AuthService } from '../../service/auth.service';
 
 class logUser{
   constructor(
@@ -23,10 +24,10 @@ class logUser{
 })
 export class LoginComponent {
   logUser = new logUser("","")
-  constructor(private serverService: ServerService, private router: Router) {}
+  constructor(private ss: ServerService, private router: Router, private auth: AuthService) {}
 
   loginUser() {
-    this.serverService.login(this.logUser.email, this.logUser.password).subscribe(() => {
+    this.ss.login(this.logUser.email, this.logUser.password).subscribe(() => {
       this.router.navigate(['/main']); // Перенаправление после успешного входа
     });
     console.log('dsdsd')

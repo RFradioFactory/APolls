@@ -1,0 +1,32 @@
+<nav >
+    <ul >
+        <li class="navig" style="margin-left: 0;"><a routerLink = "/main">
+            <img src = '/assets/Logo.png'width = "30%" height="15%">
+        </a></li>
+        <li class="navig"><a routerLink = "/about" ><span class="text"> О нас </span></a></li>
+        <li *ngIf = "isUserEnt" class="navig"><a routerLink = "/polls/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+        <li class="navig"><a routerLink = "/polls/allpolls"> <span class="text ">Все опросы</span> </a></li>
+        <li *ngIf = "isUserAdmin" class="navig"><a routerLink = "/admin"> <span class="text ">Админ панель</span> </a></li>
+        <li class= "navig"><button (click)="out()" class = text>Выйти</button></li>
+        <div style="border-top:10px solid red; "></div>
+    </ul>
+    
+</nav>
+
+<div class="enter" >
+    <div  style="background-color: red;"><p class="text" style="text-align: center; color: white;">Регистрация организации</p></div>
+    
+    <input class="inputTXT" type="text" name="name" [(ngModel)]="newUser.name" #name="ngModel" required placeholder="Название организации">
+    <input class="inputTXT" type="text" name="email" [(ngModel)]="newUser.email" required #email="ngModel" email placeholder="@email">
+    <input class="inputTXT" type="password" name="password" [(ngModel)]="newUser.password" #password="ngModel" required placeholder="Пароль">
+    
+   
+    <button 
+        [disabled]="name.invalid || email.invalid || password.invalid"
+        (click)="addEntUser()"
+        style="width: 30%; margin-left: 38%; margin-top: 2%;">
+        <div id = "button" style=" padding: 1%;  "> 
+            <p class="text_center"  style="text-align: center; ">Зарегистрировать</p>
+        </div>
+    </button>
+</div>

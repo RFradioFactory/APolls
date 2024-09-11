@@ -1,9 +1,8 @@
-<div style="text-align: center; margin-top: 10%;">
+<div style="text-align: center; margin-top: 1%;">
     <img src = '/assets/Logo.png'width = "30%" height="15%" >
     <div class="enter" >
         <div  style="background-color: red;"><p class="text" style="text-align: center; color: white;">Регистрация</p></div>
         
-        <input class="inputTXT" type="text" name="name" [(ngModel)]="newUser.name" #name="ngModel" required placeholder="ФИО или Название организации">
         <input class="inputTXT" type="text" name="email" [(ngModel)]="newUser.email" required #email="ngModel" email placeholder="@email">
         <input class="inputTXT" type="password" name="password" [(ngModel)]="newUser.password" #password="ngModel" required placeholder="Пароль">
         
@@ -13,7 +12,7 @@
             </div>
         </a>-->
         <button 
-            [disabled]="name.invalid || email.invalid || password.invalid"
+            [disabled]="email.invalid || password.invalid"
             (click)="addUser()"
             style="width: 30%; margin-left: 38%; margin-top: 2%;">
             <div id = "button" style=" padding: 1%;  "> 

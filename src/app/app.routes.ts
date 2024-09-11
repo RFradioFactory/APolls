@@ -7,13 +7,20 @@ import { CreatePollComponent } from './components/create-poll/create-poll.compon
 import { HttpClient } from '@angular/common/http';
 import { MypollsComponent } from './components/mypolls/mypolls.component';
 import { AboutComponent } from './components/about/about.component';
+import { AuthGuard } from './service/auth.guard';
+import { OpenPollComponent } from './components/open-poll/open-poll.component';
+import { AllpollsComponent } from './components/allpolls/allpolls.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 export const routes: Routes = [
     { path:"", component: LoginComponent },
     { path:"signup", component: SignupComponent},
-    { path:"main", component: MainPageComponent},
-    { path:"newpoll", component: CreatePollComponent},
-    { path:"mypolls", component: MypollsComponent},
-    { path:"about", component: AboutComponent},
+    { path:"main", component: MainPageComponent, canActivate:[AuthGuard]},
+    { path:"newpoll", component: CreatePollComponent, canActivate:[AuthGuard]},
+    { path:"polls/mypolls", component: MypollsComponent, canActivate:[AuthGuard]},
+    { path:"polls/allpolls", component: AllpollsComponent, canActivate:[AuthGuard]},
+    { path:"poll/:id", component: OpenPollComponent, canActivate:[AuthGuard]},
+    { path:"about", component: AboutComponent, canActivate:[AuthGuard]},
+    { path:"admin", component: AdminComponent, canActivate:[AuthGuard]},
     { path:"**", redirectTo: "" }
 ];

@@ -5,6 +5,7 @@ import { ServerService } from '../../service/server.service';
 import { Router } from '@angular/router';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { AuthService } from '../../service/auth.service';
+import { response } from 'express';
 
 class logUser{
   constructor(
@@ -24,6 +25,7 @@ class logUser{
 })
 export class LoginComponent {
   logUser = new logUser("","")
+  
   constructor(private ss: ServerService, private router: Router, private auth: AuthService) {}
 
   loginUser() {
@@ -31,5 +33,8 @@ export class LoginComponent {
       this.router.navigate(['/main']); // Перенаправление после успешного входа
     });
     console.log('dsdsd')
+    //this.ss.getUniversal(`user-management/`).subscribe((response: any)=>console.log(response));
+
+    
   }
 }

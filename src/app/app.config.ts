@@ -2,6 +2,7 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHandler,provideHttpClient, withInterceptors } from '@angular/common/http';
 //import { AuthInterceptor } from './service/auth.interceptor';
 import { AuthService } from './service/auth.service';
@@ -12,6 +13,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 export const appConfig: ApplicationConfig = {
   providers: [
     BrowserModule,
+    CommonModule,
     provideHttpClient(),
     MainPageComponent,
     provideRouter(routes), provideClientHydration(),

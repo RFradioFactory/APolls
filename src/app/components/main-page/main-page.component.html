@@ -4,7 +4,9 @@
             <img src = '/assets/Logo.png'width = "30%" height="15%">
         </a></li>
         <li class="navig"><a routerLink = "/about" ><span class="text"> О нас </span></a></li>
-        <li class="navig"><a routerLink = "/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+        <li *ngIf = "isUserEnt" class="navig"><a routerLink = "/polls/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+        <li class="navig"><a style="white-space: nowrop;" routerLink = "/polls/allpolls"> <span class="text">Все опросы</span> </a></li>
+        <li *ngIf = "isUserAdmin" class="navig"><a routerLink = "/admin"> <span class="text ">Админ панель</span> </a></li>
         <li class= "navig"><button (click)="out()" class = text>Выйти</button></li>
         <div style="border-top:10px solid red; "></div>
     </ul>
@@ -22,10 +24,10 @@
                     Упростите сбор информации на нашем сайте с помощью наших опросов!
                 </p>
                 <p class="text_center" style="border-left: 5px solid white; margin-top: 0; "> 
-                    Начните создавать удобные опросы уже сегодня и повысте уровень уровень взаимодействия с вашими посетителями
+                    Начните создавать удобные опросы уже сегодня и повысте уровень взаимодействия с вашими посетителями
                 </p>
             </div>
-            <a routerLink = "/newpoll">
+            <a routerLink = "/newpoll" *ngIf = "isUserEnt">
                 <div id = "button" style="margin-top: 5%; padding: 1%;"> 
                     <p class="text_center"  style="text-align: center; ">Создать опрос</p>
                 </div>

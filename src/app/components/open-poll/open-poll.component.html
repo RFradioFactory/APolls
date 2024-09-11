@@ -1,0 +1,66 @@
+<nav >
+    <ul >
+        <li class="navig" style="margin-left: 0;"><a routerLink = "/main">
+            <img src = '/assets/Logo.png'width = "30%" height="15%">
+        </a></li>
+        <li class="navig"><a routerLink = "/about" ><span class="text"> О нас </span></a></li>
+        <li *ngIf = "isUserEnt" class="navig"><a routerLink = "/polls/mypolls"> <span class="text ">Мои опросы</span> </a></li>
+        <li class="navig"><a routerLink = "/polls/allpolls"> <span class="text ">Все опросы</span> </a></li>
+        <li *ngIf = "isUserAdmin" class="navig"><a routerLink = "/admin"> <span class="text ">Админ панель</span> </a></li>
+        <li class= "navig"><button (click)="out()" class = text>Выйти</button></li>
+        <div style="border-top:10px solid red; "></div>
+    </ul>
+    
+</nav>
+
+<div style="display: inline; margin-left: 5%;">
+    <button> <p class="text">Посмотреть ответы </p></button>
+</div>
+
+<div class="new_forms" style="margin-bottom: 1%;">
+    <div style="background-color: red; display: flex; color: white;" ><p style="margin-left: 2%;">{{poll.title}}</p></div>    
+    <ul>
+    <li *ngFor="let question of poll.questions">
+        <p>{{question.id}} {{question.question_text }}</p>
+        <ul>
+        <li style="display: flex;" *ngFor="let choice of question.choices">
+            <input
+            type="radio"
+            name="question_{{ question.id }}"
+            [value]="choice.id"
+            (change)="selectChoice(question.id, choice.id)"
+            [checked]="selectedChoices[question.id] === choice.id"
+          />
+            <p>{{choice.id}} {{ choice.choice_text }}</p>
+        </li>
+        </ul>
+    </li>
+    </ul>
+</div>
+
+<button (click) = "submitPoll()" style="width: 30%; margin-left: 35%; margin-top: 1%; margin-bottom: 20%;">
+    <div id = "button" style=" padding: 1%;  "> 
+        <p class="text_center"  style="text-align: center; ">Завершить</p>
+    </div>
+</button>
+
+
+
+
+
+<!-- <div class="new_forms">
+    <div style="background-color: red; display: flex;"><input type="text" class="inputTXT, text" style="color: white;background-color: red;" [(ngModel)]="titleSurvey"  placeholder="Название опроса"></div>
+    
+    <div *ngFor="let question of questions; let i = index">
+        <button (click)="addAnswer(i)" style="color: red; margin-left: 2%;">+</button> 
+        <input class="inputTXT" type="text" [(ngModel)]="question.text" placeholder="Вопрос"> 
+        <button (click)="removeQuestion(i)"><img src = "/assets/basket.png" style="width: 50%; height: 40%;"></button>
+        
+        <div *ngFor="let answer of question.answers; let j = index" style="display: flex;">
+            <div class="circle" style="margin-left: 5%; margin-top: 2%; ">  </div>
+            <input class="inputTXT" type="text" [(ngModel)]="answer.text" placeholder="Вариант ответа">
+            <button (click)="removeAnswer(i, j)"><img src = "/assets/basket.png" style="width: 50%; height: 65%;"></button>
+            
+        </div>
+    </div>
+</div> -->
